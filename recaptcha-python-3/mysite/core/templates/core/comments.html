@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block javascript %}
+
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Comments</h1>
+  <ul>
+    {% for comment in comments %}
+      <li><small>({{ comment.created_at }})</small> {{ comment.text }}</li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="g-recaptcha" data-sitekey="6LdRSRYUAAAAAFCqQ1aZnYfRGJIlAUMX3qkUWlcF"></div>
+
+    <button type="submit" class="btn btn-primary">Post</button>
+  </form>
+{% endblock %}
