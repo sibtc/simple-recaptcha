@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block javascript %}
-
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}
 
 {% block content %}
@@ -15,9 +15,7 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <script src='https://www.google.com/recaptcha/api.js'></script>
     <div class="g-recaptcha" data-sitekey="6LdRSRYUAAAAAFCqQ1aZnYfRGJIlAUMX3qkUWlcF"></div>
-
     <button type="submit" class="btn btn-primary">Post</button>
   </form>
 {% endblock %}
